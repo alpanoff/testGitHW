@@ -5,55 +5,55 @@ import java.util.Scanner;
 
 public class HW4 {
 
-    public static int fieldSizeH;
-    public static int fieldSizeW;
-    public static char[][] field;
+    public static int fieldSizeH;//длина X
+    public static int fieldSizeW;//высота Y
+    public static char[][] field;//заполнение поля(клетки). двумерный массив
 
-    public static char playerChar = 'X';
-    public static char pcChar = 'O';
-    public static char emptyChar = '_';
+    public static char playerChar = 'X';//игрок человек
+    public static char pcChar = 'O';//игрок компьютер
+    public static char emptyChar = '*';//пустое поле
 
-    public static Scanner scanner = new Scanner(System.in);
-    public static Random random = new Random();
+    public static Scanner scanner = new Scanner(System.in);//инструмент для ввода данных. карандаш
+    public static Random random = new Random();//рандомайзер
 
     public static void main(String[] args) {
-        setupFieldSize();
-        createField(fieldSizeH, fieldSizeW);
-        currentStatusField();
+        setupFieldSize();// метод вывода игровой карты
+        createField(fieldSizeH, fieldSizeW);//метод создания поля (размер)
+        currentStatusField();//метод вывода на концоль
 
         while (true) {
 
-            turnX();
+            turnX();//ход человека
             currentStatusField();
 
             if (checkWinPosition(playerChar)) {
-                System.out.println(playerChar + " is win!");
+                System.out.println(playerChar + " >>> Вы выиграли!");
                 break;
             }
 
             if (checkFullField()) {
-                System.out.println("Draw");
+                System.out.println("Ничья");
                 break;
             }
 
-            turnO();
+            turnO();//ход компьютера
             currentStatusField();
             if (checkWinPosition(pcChar)) {
-                System.out.println(pcChar + " is win!");
+                System.out.println(pcChar + " >>> Победил компьютер!");
                 break;
             }
 
             if (checkFullField()) {
-                System.out.println("Draw");
+                System.out.println("Ничья");
                 break;
             }
         }
 
-        System.out.println("Game over!");
+        System.out.println("Игра закончена!");
     }
 
     public static void setupFieldSize() {
-        fieldSizeH = getValueFromUser("Enter field size") + 1;
+        fieldSizeH = getValueFromUser("Введите размер игровой карты") + 1;
         fieldSizeW = fieldSizeH;
     }
 
@@ -63,8 +63,8 @@ public class HW4 {
         int y;
 
         do {
-            x = getValueFromUser("Enter your turn X");
-            y = getValueFromUser("Enter your turn Y");
+            x = getValueFromUser("Введите координату X");
+            y = getValueFromUser("Введите координату Y");
         } while (!checkTurnPlayer(y, x) || !checkEmptyFieldCell(y, x));
 
         field[y][x] = playerChar;
@@ -100,10 +100,10 @@ public class HW4 {
     }
 
     public static void currentStatusField() {
-        System.out.println("=== FIELD ===");
+        System.out.println("=== Игровая карта ===");
         for (int y = 0; y < fieldSizeH; y++) {
             for (int x = 0; x < fieldSizeW; x++) {
-                System.out.print(field[y][x] + "|");
+                System.out.print(field[y][x] + " ");
             }
             System.out.println();
         }
