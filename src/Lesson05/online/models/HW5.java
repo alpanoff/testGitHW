@@ -5,12 +5,12 @@ public class HW5 {
 //создание объекта person и заполнение полей класса Employee
         Employee person = new Employee("Ivanov Ivan Ivanovich", "Ingeneer", "ivanov@mail.com", "+79998887755", "30000", "45");
 
-  //      person.name = "Ivanov Ivan Ivanovich";
- //       person.post = "Ingeneer";
-  //      person.email = "ivanov@mail.com";
-  //      person.phone = "+79998887755";
-   //     person.salary = 30000;
- //       person.age = 45;
+        person.name = "Ivanov Ivan Ivanovich";
+        person.post = "Ingeneer";
+        person.email = "ivanov@mail.com";
+        person.phone = "+79998887755";
+        person.salary = 30000;
+        person.age = 45;
 
      //   person.infoPerson();
 
