@@ -1,6 +1,6 @@
 package Lesson05.online;
 
-import Lesson03.online.ArrayClass;
+
 import Lesson05.online.models.Gamer;
 
 /**
