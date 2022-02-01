@@ -11,6 +11,8 @@ public class HW5 {
         person.salary = 30000;
         person.age = 45;
 
+        person.infoPerson();
+
 
 
 
